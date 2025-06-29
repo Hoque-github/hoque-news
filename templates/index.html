@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Stay updated with real-time headlines from trusted sources like BBC, Reuters, and CoinDesk. Curated daily for easy reading.">
+    <meta name="keywords" content="news, headlines, latest news, breaking news, BBC, Reuters, CoinDesk, crypto news, tech news">
+    <meta name="author" content="YourSiteName or YourName">
+
+    <!-- Open Graph (OG) for Facebook, LinkedIn -->
+    <meta property="og:title" content="Auto News Portal - Latest Headlines">
+    <meta property="og:description" content="Get top headlines in world news, business, crypto, and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://news.hoqueai.com/">
+    <meta property="og:image" content="{{ url_for('static', filename='default-og-image.jpg') }}">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Auto News Portal - Latest Headlines">
+    <meta name="twitter:description" content="World and crypto news auto-curated from trusted sources.">
+    <meta name="twitter:image" content="{{ url_for('static', filename='default-og-image.jpg') }}">
+    <meta name="twitter:site" content="@YourTwitterHandle">
+
+    <title>Auto News Portal - Latest Headlines from Top Sources</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  
+
+</head>
+
+<body>
+  <!-- Top Navbar -->
+  <nav class="flex items-center justify-between bg-blue-700 p-4 text-white shadow-md sticky top-0 z-50">
+    <div class="flex items-center space-x-2">
+      <a href="/" class="flex items-center space-x-2">
+        <img src="{{ url_for('static', filename='logo1.webp') }}" alt="Logo" class="h-10 w-10 rounded-full">
+        <span class="text-xl font-semibold">news.hoqueai.com</span>
+      </a>
+    </div>
+    <ul class="hidden sm:flex space-x-4 text-sm sm:text-base font-medium">
+      <li><a href="http://www.hoqueai.com/about.html" class="hover:underline">About</a></li>
+<!-- TEMPORARY DISABLED     
+      <li><a href="#" class="hover:underline">News</a></li>
+      <li><a href="#" class="hover:underline">Business</a></li>
+      <li><a href="#" class="hover:underline">Crypto</a></li>
+      <li><a href="#" class="hover:underline">Sports</a></li>
+      <li><a href="#" class="hover:underline">Technology</a></li>
+      <li><a href="#" class="hover:underline">Entertainment</a></li>
+      <li><a href="#" class="hover:underline">Fashion</a></li>
+      <li><a href="#" class="hover:underline">Health</a></li>
+      <li><a href="#" class="hover:underline">Travel</a></li>  
+    -->
+      <li><a href="http://www.hoqueai.com/contact.html" class="hover:underline">Contact</a></li>
+      <li><a href="http://www.hoqueai.com/privacy_policy.html" class="hover:underline">Privacy</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Heading -->
+  <h1 class="text-4xl sm:text-5xl font-bold bg-blue-600 text-white p-6 rounded-xl text-center shadow-lg">
+    Today's Headlines
+  </h1>
+
+  <!-- Controls TEMPORARILY COMMENTED OUT
+
+  <div class="controls p-4 flex flex-wrap gap-4 justify-center">
+    <input type="text" id="searchInput" placeholder="Search news..." class="px-3 py-2 border rounded">
+    <select id="categorySelect" class="px-3 py-2 border rounded">
+      <option value="">All Categories</option>
+      <option value="technology">Technology</option>
+      <option value="sports">Sports</option>
+      <option value="business">Business</option>
+    </select>
+    <select id="countrySelect" class="px-3 py-2 border rounded">
+      <option value="">All Countries</option>
+      <option value="ar">Argentina</option>
+      <option value="au">Australia</option>
+      <option value="us">USA</option>
+      <option value="ca">Canada</option>
+      <option value="gb">UK</option>
+      <option value="bd">Bangladesh</option>
+      <option value="br">Brazil</option>
+      <option value="cn">China</option>
+      <option value="fr">France</option>
+      <option value="de">Germany</option>
+      <option value="in">India</option>
+      <option value="ir">Iran</option>
+      <option value="jp">Japan</option>
+      <option value="my">Malayaia</option>
+      <option value="pk">Pakistan</option>
+      <option value="qa">Qatar</option>
+      <option value="sa">Saudi Arabia</option>
+      <option value="tr">Turkey</option>
+      <option value="ae">UAE</option>
+    </select>
+    <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded">Search</button>
+    <button class="toggle-btn px-4 py-2 bg-gray-700 text-white rounded" onclick="toggleTheme()">Toggle Theme</button>
+  </div> -->
+
+  <div id="newsContainer" class="row g-3">
+      <!-- News articles will appear here -->
+  </div>
+  <!-- Main Container -->
+  <div class="container mx-auto px-4">
+    <div class="main-content">
+
+      <!-- Top Advertisement -->
+      <div class="top-ad my-4">
+        <img src="/static/ad-banner.jpg" alt="Advertisement" style="width: 100%; height: auto;">
+      </div>
+
+      <!-- Top Headline -->
+      <div class="headline mb-6">
+        <img src="{{ articles[0].image_url or url_for('static', filename='default.jpg') }}" alt="Top news image" class="w-full h-64 object-cover rounded-lg mb-4">
+        <h2 class="text-2xl font-semibold mb-2">{{ articles[0].title }}</h2>
+        <p class="mb-2">{{ articles[0].content }}</p>
+        <div class="source-time-row flex items-center gap-4 text-sm text-gray-700">
+          <a href="{{ articles[0].url }}" class="source-button bg-blue-600 text-white px-3 py-1 rounded" target="_blank">{{ articles[0].source }}</a>
+          <div class="time-info flex items-center gap-1"><i class="fa fa-clock"></i> {{ articles[0].time }}</div>
+        </div>
+      </div>
+
+      <!-- News Grid -->
+      <div class="news-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for article in articles %}
+          <div class="news-card bg-white rounded-lg shadow p-4 flex flex-col">
+            <img src="{{ article.image_url or url_for('static', filename='default.jpg') }}" alt="News image" class="h-48 w-full object-cover rounded mb-3">
+            <h3 class="text-lg font-semibold mb-2">{{ article.title }}</h3>
+            <p class="text-sm mb-2">{{ article.description }}</p>
+            <div class="flex items-center justify-between mt-2">
+  
+              <a href="{{ article.url }}" class="source-button text-sm text-blue-700 font-semibold mr-3" target="_blank">{{ article.source }}</a>
+            <div class="flex items-center text-gray-600 text-sm gap-1">
+                <i class="fa fa-clock text-base"></i>
+                <span>{{ article.time }}</span>
+            </div>
+      </div>
+    </div>
+          {% if loop.index % 3 == 0 %}
+            <!-- Thin ad after every 3 articles -->
+            <div class="ad-card col-span-full">
+              <img src="/static/thin-ad.jpg" alt="Advertisement" style="width: 100%; height: 80px;">
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+
+<div class="load-more text-center my-6">
+  <button id="load-more-btn" onclick="loadMore()" class="bg-blue-700 text-white px-6 py-2 rounded">Load More</button>
+  <p id="loading-msg" class="text-gray-500 mt-2 hidden">Loading...</p>
+</div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar my-6">
+      <div class="trending-box bg-white rounded shadow p-4 mb-6">
+        <h2 class="text-xl font-semibold mb-3">Trending Now</h2>
+        <ul id="trending-list" class="list-disc pl-5 space-y-2">
+          <!-- Filled by JS -->
+        </ul>
+      </div>
+
+      <div class="ad-box bg-gray-200 text-center py-10 rounded shadow">
+        Ad space <br><br>
+        Ad space 2
+      </div>
+
+      <div class="ad-box bg-gray-200 text-center py-10 rounded shadow">
+        Ad space <br><br>
+        Ad space 2
+      </div>
+      
+    </div>
+  </div>
+
+
+  
+
+  <!-- Trending Script -->
+  <script>
+    fetch('/trending')
+      .then(response => response.json())
+      .then(data => {
+        const trendingList = document.getElementById('trending-list');
+        trendingList.innerHTML = '';
+        data.slice(0, 20).forEach(article => {
+          const li = document.createElement('li');
+          li.innerHTML = `<a href="${article.link}" target="_blank">${article.title}</a>`;
+          trendingList.appendChild(li);
+        });
+      })
+      .catch(error => console.error('Error fetching trending news:', error));
+  </script>
+
+  <!-- Utility Scripts -->
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+    }
+
+    function loadMore() {
+      alert("Load more functionality can be implemented with pagination logic.");
+    }
+  </script>
+
+<script>
+let currentPage = 1;
+
+function loadMore() {
+  currentPage += 1;
+  fetch(`/load_more?page=${currentPage}`)
+    .then(response => response.json())
+    .then(data => {
+      const grid = document.querySelector('.news-grid');
+      data.forEach(article => {
+        const card = document.createElement('div');
+        card.className = 'news-card';
+        card.innerHTML = `
+          <h3>${article.title}</h3>
+          <p>${article.description}</p>
+          <a href="${article.url}" class="source-button" target="_blank">${article.source}</a>
+          <div class="time-info"><i class="fa fa-clock"></i> ${article.time}</div>
+        `;
+        grid.appendChild(card);
+      });
+    })
+    .catch(error => console.error('Load more error:', error));
+}
+</script>
+
+<button id="goToTopBtn" title="Back to Top">
+    ⬆️<br><span style="font-size:14px;">Top</span>
+</button>
+<!-- FLOATING BUTTON -->
+  <script>
+    const goToTopBtn = document.getElementById("goToTopBtn");
+  
+    // Show button when user scrolls down
+    window.addEventListener("scroll", () => {
+      if (document.documentElement.scrollTop > 300) {
+        goToTopBtn.classList.add("show");
+      } else {
+        goToTopBtn.classList.remove("show");
+      }
+    });
+  
+    // Scroll to top when button clicked
+    goToTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+
+  <script>
+let offset = 20;
+const limit = 20;
+let isLoading = false;
+let noMoreArticles = false;
+
+function loadMore() {
+  if (isLoading || noMoreArticles) return;
+
+  isLoading = true;
+  document.getElementById('loading-msg').classList.remove('hidden');
+
+  fetch(`/load_more?offset=${offset}&limit=${limit}`)
+    .then(response => response.json())
+    .then(data => {
+      if (data.length === 0) {
+        noMoreArticles = true;
+        document.querySelector('.load-more').style.display = 'none';
+        return;
+      }
+
+      const container = document.getElementById('articles-container');
+      data.forEach(article => {
+        const box = document.createElement('div');
+        box.className = "news-box border p-4 mb-4 rounded";
+        box.innerHTML = `
+          <h3 class="text-xl font-semibold mb-2">${article.title}</h3>
+          <img src="${article.image_url}" alt="Image" class="w-full h-auto mb-2">
+          <p class="mb-2">${article.content}</p>
+          <a href="${article.url}" target="_blank" class="text-blue-500 underline">Read more</a>
+          <p class="text-sm text-gray-500 mt-1">${article.time}</p>
+        `;
+        container.appendChild(box);
+      });
+
+      offset += limit;
+    })
+    .catch(error => console.error("Error loading more articles:", error))
+    .finally(() => {
+      isLoading = false;
+      document.getElementById('loading-msg').classList.add('hidden');
+    });
+}
+
+// Auto-trigger loadMore when user scrolls near the bottom
+window.addEventListener('scroll', () => {
+  const threshold = 200; // pixels from bottom
+  const scrolledToBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - threshold;
+  if (scrolledToBottom) {
+    loadMore();
+  }
+});
+</script>
+
+<script>
+  async function fetchNews() {
+    const country = document.getElementById('countrySelect').value;
+    const category = document.getElementById('categorySelect').value;
+    const search = document.getElementById('searchInput').value;
+
+    const params = new URLSearchParams();
+    if (country) params.append('country', country);
+    if (category) params.append('category', category);
+    if (search) params.append('search', search);
+
+    try {
+      const response = await axios.get(`/news?${params.toString()}`);
+      const newsContainer = document.getElementById('newsContainer');
+      newsContainer.innerHTML = '';
+
+      if (!response.data.articles || response.data.articles.length === 0) {
+        newsContainer.innerHTML = '<p class="text-muted">No news found for selected filters.</p>';
+        return;
+      }
+
+      response.data.articles.forEach(article => {
+        const card = document.createElement('div');
+        card.className = 'col-md-4';
+        card.innerHTML = `
+          <div class="card h-100">
+            <img src="${article.image_url || 'https://via.placeholder.com/300'}" class="card-img-top" alt="News Image">
+            <div class="card-body">
+              <h5 class="card-title">${article.title}</h5>
+              <p class="card-text">${article.description || ''}</p>
+              <a href="${article.link}" target="_blank" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        `;
+        newsContainer.appendChild(card);
+      });
+    } catch (error) {
+      console.error('Error fetching news:', error);
+      document.getElementById('newsContainer').innerHTML =
+        '<p class="text-danger">Error loading news. Please try again later.</p>';
+    }
+  }
+
+  // Event listeners
+  document.getElementById('countrySelect').addEventListener('change', fetchNews);
+  document.getElementById('categorySelect').addEventListener('change', fetchNews);
+  document.querySelector('.controls button[type="submit"]').addEventListener('click', (e) => {
+    e.preventDefault();
+    fetchNews();
+  });
+
+  // Load all news on page load
+  fetchNews();
+</script>
+
+<!-- FOOTER START-->
+
+<footer class="mini-contact-footer">
+  <p>Have a question or want to connect?
+   <i class="fas fa-envelope"></i> <a href="mailto:hoque@HoqueAi.com">hoque@HoqueAi.com</a>,
+   <i class="fa-solid fa-globe"></i><a href="http://www.hoqueai.com">HoqueAi.com</a>,
+  <a href="templates/contact.html" class="cta-link">Go to Contact Form</a>
+
+  <div class="copyright">
+      <p>&copy; 2025 HoqueAI. All rights reserved. | <a href="templates/privacy_policy.html" class="clr" ><strong>Privacy Policy</strong></a></p>
+  </div>
+  <div class="social-icons" >
+    <a href="https://www.linkedin.com/in/m-a-hoque-b8807115/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://x.com/HoqueAi"><i class="fa-brands fa-square-x-twitter"></i></a>
+    <a href="https://www.facebook.com/SAP.Hoque"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.instagram.com/hoqueai/"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.youtube.com/@mohammedhoque6135"><i class="fa-brands fa-youtube"></i></a> 
+  </div>
+  
+</footer>
+
+</body>
+</html>

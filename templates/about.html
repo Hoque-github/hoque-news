@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Meta Description & Keywords -->
+    <!-- Meta Description & Keywords -->
+    <meta name="description" content="Explore how deep learning and NVIDIA’s Convolutional Neural Networks (CNNs) enable self-driving cars to perceive, decide, and navigate roads intelligently. A feature project by HoqueAi.">
+    <meta name="keywords" content="Self-Driving Car, NVIDIA CNN, Autonomous Vehicles, Deep Learning, AI in Transportation, HoqueAi, AI Projects, Computer Vision, Model Training, AI Ethics">
+
+    <!-- Open Graph for Facebook, LinkedIn, etc. -->
+    <meta property="og:title" content="Self Driving Car using NVIDIA's CNN | HoqueAi">
+    <meta property="og:description" content="A deep learning-powered project showing how CNNs make autonomous driving possible. From perception to prediction, explore real-world AI in action.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.hoqueai.com/self_driving_car.html">
+    <meta property="og:image" content="https://www.hoqueai.com/assets/images/self-driving-preview2.webp"> <!-- Update this with your preview image path -->
+    <meta property="og:site_name" content="HoqueAi">
+
+    <!-- Twitter Card / X.com -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Self Driving Car using NVIDIA's CNN | HoqueAi">
+    <meta name="twitter:description" content="Explore how deep learning enables self-driving cars through CNN-based perception. A featured AI project by HoqueAi.">
+    <meta name="twitter:image" content="https://www.hoqueai.com/assets/images/self-driving-preview2.webp"> <!-- Update path -->
+    <meta name="twitter:site" content="@HoqueAi">
+
+
+    <meta name="robots" content="index, follow" />
+
+    <title>About Me</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <link rel="canonical" href="https://www.hoqueai.com/about.html" />
+    <link rel="stylesheet" href="stylex.css">
+    <link rel="stylesheet" href="collapse.css"
+  <!--- <link rel="stylesheet" href="h_predict.css" > -->
+ <!--   <link rel="stylesheet" href="samll_screen.css"> -->
+
+<!--    <link rel="stylesheet" href="css_navbar">   -->
+    <script src="https://kit.fontawesome.com/11e257324c.js" crossorigin="anonymous"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6L94JFGMF7"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-6L94JFGMF7');
+        </script>
+
+<style>
+       
+.container {
+    width: 85%;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+    color: #333;
+    text-align: left;
+}
+
+
+.footer-imagex {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.footer-imagex img {
+    width: 100%;
+    height: 150px;
+    max-height: 150px; /* 2 inches at 96 DPI */
+    display: block;
+    object-fit: cover;
+}
+
+.featured-about{
+        font-size: 1.6em;
+}
+
+.featured-about ul, li {
+    margin-left: 40px;
+}
+
+    /* Local Navigation Bar */
+.local-navbar {
+    background-color: #2a3035;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.local-navbar a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+}
+
+.local-navbar a:hover {
+    text-decoration: underline;
+}
+
+
+      </style>
+
+<style>
+.image-container {
+      text-align: center;
+      margin: 2rem 0;
+    }
+    .image-container img {
+      width: 50%;
+      height: auto;
+      border-radius: 10px;
+    }
+    p{
+        align-items: last baseline;
+    }
+
+.website-link {
+  color: white;
+}
+</style>
+  
+<style>
+ .container p {
+    font-size: 20px; /* default size for large screens */
+  }
+
+  ul {
+  font-size: 18px;
+  }
+
+  @media (max-width: 768px) {
+    .container  p {
+      font-size: 16px; /* smaller font on tablets and mobile */
+    }
+
+    ul {
+    font-size: 16px;
+    }
+
+    li {
+    font-size: 16px;
+    }
+  }
+
+  @media (max-width: 480px) {
+ .container p {
+      font-size: 14px; /* even smaller on very small screens */
+    }
+
+    ul {
+    font-size: 14px;
+    }
+
+    li {
+    font-size: 14px;
+    }
+  }
+</style>
+
+<style>
+  .split-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.left-section,
+.right-section {
+    flex: 1;
+}
+
+.left-section {
+    flex-basis: 44%;
+}
+
+.right-section {
+    flex-basis: 56%;
+}
+
+.project-image {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+video {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+</style>
+
+<style>
+  .graph-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .graph-container img {
+    width: 55%;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+
+</style>
+
+<style>
+  .project-content {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f3f4f5; /* A brighter shade of blue for the header */
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+   
+}
+
+.intro{
+    margin: 0 40px;
+    padding-left: 40px;
+    color: rgb(57, 39, 245);
+    background:#f3f4f5;
+    font-size: 20px;
+}
+
+.codes {
+  text-align: left;
+}
+</style>
+
+</head>
+<body>
+    <!-- Top Banner -->
+    <header class="top-banner">
+        <img src="images/2hdr.webp" alt="Website Banner with Logo" class="banner-image">
+    </header>
+
+    <!--  TOP MENE START -->
+
+    <nav>
+        <ul class="menu" id="sidemenu">
+            <li class="hide-menu-img" onclick="closemenu()">
+                <img src="images\hide_menus2.webp" alt="Hide menus" />
+            </li>
+
+            <li><a href="index.html">Home</a></li>
+            <li><a href="images/HOQUE_RESUME.pdf" target="_blank" rel="noopener">Resume</a></li>
+            <li><a href="credentials.html">Credentials</a></li>
+            <li><a href="main_project.html">Projects</a></li>
+            <li><a href="strategic_insights.html">Insights</a></li>
+            <li><a href="lmo_suit.html">LmoSuit</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="privacy_policy.html">Privacy</a></li>
+        </ul>
+            <li class="show-menu-img" onclick="openmenu()">
+            <img src="images\show_menus.webp" alt="Show menus" /></li>
+    </nav>
+
+        <!--  TOP MENE END -->
+ 
+    
+    <!-- ------------------LANDING POAGE===============-->
+
+    <div class="container">
+        <div class="text-section">
+            <h1 style="color: #0d14ec; text-align: center;">Mohammed Hoque</h1> 
+        <br>
+        <div style="text-align: center; margin: 20px 0;">
+          <img src="images/hoque.webp" alt="Mohammed hoque, Profile picture" style="width: 20%; height: auto; display: inline-block;">
+          <p style="font-size: 16px">Mohammed Hoque</i> </p>
+        </div>  
+
+<!--<p>XXXXXXXXXXXXXXXX START XXXXXXXXXXXxx</p> -->
+
+<main>
+  <section class="featured-about">
+    <h1 style="color: #0d14ec;">About Me</h1>
+    <br>
+    <p>
+      I’m Mohammed Hoque, an AI Engineer and Machine Learning enthusiast based in Canada.
+      With a deep passion for artificial intelligence, I have worked on various projects
+      in Human Emotion Detection, Brain Tumor Detection using object recognition, and
+      autonomous driving systems using NVIDIA CNN technologies.
+    <br><br>
+    
+     My work focuses on exploring cutting-edge technologies in AI and deploying real-world
+      solutions that make a difference. I enjoy building products that are not only
+      innovative but also practical for business and social impact.
+      <br><br>
+
+      I am continuously upgrading my skills in Deep Learning, Computer Vision, and
+      Reinforcement Learning, while contributing to AI research and applications.
+      <br><br>
+
+      I also maintain a blog and portfolio to share my latest work, learnings, and
+      insights from the world of AI.
+    </p>
+
+    
+
+  </section>
+
+
+</main>
+
+
+</body>
+</html>
+
+
+
+<!--<p>YYYYYYYYYYYYYY = END = ZZZZZZZZZZZZZZZ</p> -->
+   
+      </div>
+    </div>
+    </div>
+
+
+ <br>     <br><br>
+<!-----------------CONTACT FORM------Google Sheet "contact form"---------------------->
+<div class="section" id="contact-view"><h1 style="color: #0db0ec;"></h1>
+</div>
+
+
+
+<div id="contact">
+    <div class="container4">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fas fa-paper-plane"></i>hoque@HoqueAi.com</p>
+                <p><i class="fas fa-phone-square-alt"></i> +1 473 607 1949</p>
+
+              <div class="contact-info" >
+                  <a href="https://www.HoqueAi.com" class="website-link" target="_blank">
+                  <img src="images\www.webp" alt="Website Icon">
+                  www.HoqueAi.com
+                  </a>
+              </div>
+
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.linkedin.com/in/m-a-hoque-b8807115/ "><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter-square"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-square-tumblr"></i></a> 
+                </div>
+                <a href="images/HOQUE_RESUME.pdf" download class="custom-button">Download Resume</a>            
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="5" placeholder="Your Message"></textarea>
+                    <button type="submit" class="submit-btn">Submit</button>
+                </form>
+                <span id="msg"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <!-- FOOTER-->
+
+
+
+     <div class="copyright">
+      <p>&copy; 2025 HoqueAI. All rights reserved. | <a href="privacy_policy.html" class="clr" >Privacy Policy</a></p>
+<!-- Buttons above the footer -->
+<div class="button-container">
+    <a href="index.html">
+      <button class="custom-button">Index</button>
+    </a>
+    <a href="main_project.html">
+      <button class="custom-button">Projects</button>
+    </a>
+  </div>
+
+<!--     <p>copyright Hoque. Made with <i class="fas fa-heart"></i> by freiendly AI community platform</p> -->
+     </div>
+     
+     <footer>
+        <img src="images/footer4.webp" alt="Footer Banner" class="footer-banner">   
+     </footer>
+    
+
+</div>
+
+
+    <!-- SCRIPTS-->
+
+    <script>
+      var Specialized = document.getElementById("sidemenu");
+
+      function openmenu(){
+          sidemenu.style.right = "0";
+      }
+
+      function closemenu(){
+          sidemenu.style.right = "-220px";
+      }
+  </script>
+
+
+<!-- Include MathJax for rendering LaTeX equations -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents")
+
+        function opentab(tabname){
+            for(tablink of tablinks){
+                tablink.classList.remove("active-link");
+            }
+
+            for(tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab");
+            }
+
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+    </script>
+
+
+<!--SUBMIT BUTTON SCRIPT -->
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzNfEpIVpkGbCV2r3-ur4FxKRCVZQZKyYCrWZOxOqPdKPlBEHKcxiLa1NF82cs1FtTMtg/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message sent successfully"
+            setTimeout(function(){
+                msg.innerHTML = ""
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+</script>
+  
+<script>
+    fetch('navbar.html')
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('navbar-container').innerHTML = html;
+        });
+</script>
+
+<!--<div id="menu-container"></div>  -->
+
+<!-- Floating Go to Top Button with Arrow and Text -->
+<button id="goToTopBtn" title="Back to Top">
+    ⬆️<br><span style="font-size:14px;">Top</span>
+  </button>
+  
+  <style>
+    #goToTopBtn {
+      position: fixed;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      display: none;
+      z-index: 9999;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 10px 12px;
+      font-size: 22px;
+      border-radius: 10px;
+      cursor: pointer;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transition: opacity 0.4s ease, transform 0.2s ease;
+    }
+  
+    #goToTopBtn.show {
+      display: block;
+      opacity: 1;
+    }
+  
+    #goToTopBtn:hover {
+      background-color: #218838;
+      transform: translateY(-50%) scale(1.1);
+    }
+  
+    #goToTopBtn span {
+      font-size: 14px;
+      display: block;
+      margin-top: 3px;
+    }
+  
+  
+  </style>
+  
+  <!-- FLOATING BUTTON -->
+  <script>
+    const goToTopBtn = document.getElementById("goToTopBtn");
+  
+    // Show button when user scrolls down
+    window.addEventListener("scroll", () => {
+      if (document.documentElement.scrollTop > 300) {
+        goToTopBtn.classList.add("show");
+      } else {
+        goToTopBtn.classList.remove("show");
+      }
+    });
+  
+    // Scroll to top when button clicked
+    goToTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+
+<script>
+  // JavaScript for Collapsible Sections
+  var coll = document.getElementsByClassName("collapsible");
+  for (var i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+
+          // Toggle between show and hide
+          if (content.style.display === "block") {
+              content.style.display = "none";
+              this.textContent = "Click: To Display Codes"; // Change button text
+          } else {
+              content.style.display = "block";
+              this.textContent = "Click: To Hide Codes"; // Change button text
+          }
+      });
+  }
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
