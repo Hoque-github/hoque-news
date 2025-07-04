@@ -1,0 +1,18 @@
+{
+  "posts": [
+    {
+      "title": "How to Start Blogging with HTML and JavaScript",
+      "author": "Mohammed Hoque",
+      "date": "2025-07-03",
+      "description": "A beginner's guide to starting a custom blog using HTML templates and dynamic JavaScript data.",
+      "url": "https://yourblog.blogspot.com/2025/07/start-blogging.html"
+    },
+    {
+      "title": "Fetching JSON Data in Blogger",
+      "author": "Mohammed Hoque",
+      "date": "2025-06-25",
+      "description": "Learn how to use the fetch API to get JSON content and dynamically render blog posts in Blogger.",
+      "url": "https://yourblog.blogspot.com/2025/06/json-fetch-blogger.html"
+    }
+  ]
+}
