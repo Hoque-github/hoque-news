@@ -1,44 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="Stay updated with real-time headlines from trusted sources like BBC, Reuters, and CoinDesk. Curated daily for easy reading.">
-    <meta name="keywords" content="news, headlines, latest news, breaking news, BBC, Reuters, CoinDesk, crypto news, tech news">
-    <meta name="author" content="YourSiteName or YourName">
+    <meta name="keywords" content="cryptocurrency news, crypto market, bitcoin updates, ethereum news, blockchain trends, altcoins, crypto trading, digital currency, DeFi, crypto analysis, latest crypto headlines, web3, metaverse finance, crypto prices, crypto regulations">
+    <!-- Meta Description -->
+    <meta name="description" content="Stay up-to-date with the latest cryptocurrency news, real-time updates on Bitcoin, Ethereum, blockchain innovations, market trends, and global crypto regulations.">
+    <meta name="author" content="news.hoqueai.com or YourName">
 
     <!-- Open Graph (OG) for Facebook, LinkedIn -->
-    <meta property="og:title" content="Auto News Portal - Latest Headlines">
-    <meta property="og:description" content="Get top headlines in world news, business, crypto, and more.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url_for('crypto', _external=True) }}">
+    <meta property="og:title" content="Latest Crypto News and Blockchain Trends">
+
     <meta property="og:url" content="https://news.hoqueai.com/">
-    <meta property="og:image" content="{{ url_for('static', filename='default-og-image.jpg') }}">
+    <meta property="og:image" content="{{ url_for('static', filename='crypto_currency_banner.jpg') }}">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Auto News Portal - Latest Headlines">
-    <meta name="twitter:description" content="World and crypto news auto-curated from trusted sources.">
-    <meta name="twitter:image" content="{{ url_for('static', filename='default-og-image.jpg') }}">
+    <meta name="twitter:url" content="{{ url_for('crypto', _external=True) }}">
+    <meta name="twitter:title" content="Live Crypto News and Market Insights">
+    <meta name="twitter:description" content="Track Bitcoin, Ethereum, and blockchain news in real time. Explore DeFi, Web3, and crypto market analysis.">
+    <meta name="twitter:image" content="{{ url_for('static', filename='crypto_currency_banner.jpg') }}">
     <meta name="twitter:site" content="@YourTwitterHandle">
 
-    <title>Auto News Portal - Latest Headlines from Top Sources</title>
+    <title>Latest Ai News from Top Sources</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
-  <style>
+<style>
   .line-clamp-6 {
-    display: -webkit-box;
-    -webkit-line-clamp: 6;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-</style>
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
+  -webkit-line-clamp: 6; /* Required for Chrome, Safari */
+  line-clamp: 6;         /* Optional future support */
+}
+</style>
 
 </head>
 
@@ -47,30 +51,33 @@
   <nav class="flex items-center justify-between bg-blue-900 p-4 text-white shadow-md sticky top-0 z-50">
     <div class="flex items-center space-x-2">
       <a href="/" class="flex items-center space-x-2">
-
-        
         <img src="{{ url_for('static', filename='logo1.webp') }}" alt="Logo" class="h-10 w-10 rounded-full">
         <span class="text-xl font-semibold">news.hoqueai.com</span>
       </a>
     </div>
     <ul class="hidden sm:flex space-x-4 text-sm sm:text-base font-medium">
-        
-        <li><a href="{{ url_for('index') }}" class="hover:underline">Home</a></li>
+        <ul class="hidden sm:flex space-x-4 text-sm sm:text-base font-medium">
+        <li><a href="{{ url_for('index') }}" class="hover:underline">Home</a></li
         <li><a href="{{ url_for('ainews') }}" class="hover:underline">AI News</a></li>
-        
         <li><a href="{{ url_for('crypto') }}" class="hover:underline">Crypto Currency</a></li>
         <li><a href="{{ url_for('cricket') }}" class="hover:underline">Cricket</a></li>
         <li><a href="{{ url_for('football') }}" class="hover:underline">Football</a></li>
-        
         <li><a href="http://www.hoqueai.com/about.html" class="hover:underline">About</a></li>
         <li><a href="http://www.hoqueai.com/contact.html" class="hover:underline">Contact</a></li>
         <li><a href="http://www.hoqueai.com/privacy_policy.html" class="hover:underline">Privacy</a></li>
+    </ul>
     </ul>
 
   </nav>
 
   <!-- Page Heading -->
-  <h1 class="text-4xl sm:text-5xl font-bold bg-blue-700 text-white p-6 rounded-xl text-center shadow-lg">{{ page_title }}</h1>
+<h1 class="text-4xl sm:text-5xl font-bold bg-blue-700 text-white p-6 rounded-xl text-center shadow-lg">{{ page_title }}</h1>
+<h1 class="text-4xl sm:text-5xl font-bold bg-blue-700 text-white p-6 rounded-xl text-center shadow-lg">{{ page_sub_title }}</h1>
+
+ <!-- <h1 class="text-4xl sm:text-5xl font-bold bg-blue-700 text-white p-6 rounded-xl text-center shadow-lg">
+    Crypto News Headlines
+  </h1>
+-->
 
   <div id="newsContainer" class="row g-3">
       <!-- News articles will appear here -->
@@ -147,29 +154,27 @@
                 </div>
             </div>
 
+        <!-- SHORT BODY TEXT (like AI News) -->
+    {% endif %}
 
-            {% endif %}
-            
-            {% if loop.index % 3 == 0 %}
-          <!-- Thin ad after every 3 articles -->
+    {% if loop.index % 3 == 0 %} 
+ 
+            <!-- Thin ad after every 3 articles -->
             <div class="ad-card col-span-full">
               <img src="/static/thin-ad.jpg" alt="Advertisement" style="width: 100%; height: 80px;">
-              <p>Ad space</p>
-              
             </div>
               {% endif %}
             {% endfor %}
           </div>
 
-    
-
+     
           <div class="load-more text-center my-6">
             <button id="load-more-btn" onclick="loadMore()" class="bg-blue-700 text-white px-6 py-2 rounded">Load More</button>
             <p id="loading-msg" class="text-gray-500 mt-2 hidden">Loading...</p>
           </div>
         </div>
-
-        <!-- Sidebar -->
+ 
+         <!-- Sidebar -->
         <div class="sidebar my-6">
           <div class="trending-box bg-white rounded shadow p-4 mb-6">
             <h2 class="text-xl font-semibold mb-3">Trending Now</h2>
@@ -186,12 +191,9 @@
           <div class="ad-box bg-gray-200 text-center py-10 rounded shadow">
             Ad space <br><br>
             Ad space 2
-          </div>
-        
+          </div>        
       </div>
   </div>
-
-
   
 
   <!-- Trending Script -->

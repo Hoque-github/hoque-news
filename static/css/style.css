@@ -206,6 +206,58 @@
   list-style-type: none;
 }
 
+
+
+
+/* Common Styles for Both Buttons */
+#goToTopBtn, #goToBottomBtn {
+  position: fixed;
+  right: 20px;
+  z-index: 9999;
+  background-color: #0a917b;
+  color: white;
+  border: none;
+  padding: 10px 12px;
+  font-size: 22px;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  display: none;
+  transition: opacity 0.4s ease, transform 0.2s ease;
+}
+
+#goToTopBtn {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#goToBottomBtn {
+  top: 65%; /* slightly below the top button */
+  transform: translateY(-50%);
+}
+
+#goToTopBtn.show,
+#goToBottomBtn.show {
+  display: block;
+  opacity: 1;
+}
+
+#goToTopBtn:hover,
+#goToBottomBtn:hover {
+  background-color: #218838;
+  transform: translateY(-50%) scale(1.1);
+}
+
+#goToTopBtn span,
+#goToBottomBtn span {
+  font-size: 14px;
+  display: block;
+  margin-top: 3px;
+}
+
+/*
     #goToTopBtn {
       position: fixed;
       top: 50%;
@@ -241,7 +293,7 @@
       display: block;
       margin-top: 3px;
     }
-
+      */
 .mini-contact-footer {
   text-align: center;
   padding: 20px;
